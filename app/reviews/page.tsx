@@ -1,0 +1,6 @@
+import type {Metadata} from "next";import Link from "next/link";import {reviews} from "@/lib/data";import PageHero,{Breadcrumbs} from "@/components/PageHero";import Reveal from "@/components/Reveal";
+export const metadata:Metadata={title:"Reviews",description:"What Kenari families say."};
+export default function Page(){return <><Breadcrumbs items={[{label:"Home",href:"/"},{label:"Reviews"}]}/>
+<PageHero eyebrow="Client reviews" title="Real stories. Real peace." lead="Sample reviews are shown below and clearly labelled. Replace them in lib/data.ts with genuine, approved reviews."/>
+<section className="py-24"><div className="wrap grid md:grid-cols-3 gap-px bg-champagne">{reviews.map((r,i)=><Reveal key={i} delay={i*80}><figure className="bg-cream p-10 h-full"><div className="font-bold text-rose tracking-[0.3em] text-sm">{String(i+1).padStart(2,"0")}</div><blockquote className="mt-4 text-xl font-bold leading-snug">{r.text}</blockquote><figcaption className="mt-5 text-sm text-espresso/70">{r.name}{r.sample&&" (sample)"}</figcaption></figure></Reveal>)}</div>
+<div className="wrap mt-12 text-center"><Link href="/book-a-nurse" className="btn btn-dark">Book a Nurse</Link></div></section></>}

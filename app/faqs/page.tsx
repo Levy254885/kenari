@@ -1,0 +1,6 @@
+import type {Metadata} from "next";import {faqs} from "@/lib/data";import PageHero,{Breadcrumbs} from "@/components/PageHero";import Reveal from "@/components/Reveal";
+export const metadata:Metadata={title:"FAQs",description:"Answers about Kenari packages, booking, payments and the e-book."};
+export default function Page(){return <><Breadcrumbs items={[{label:"Home",href:"/"},{label:"FAQs"}]}/>
+<PageHero eyebrow="FAQs" title="Answers to questions we are commonly asked."/>
+<section className="py-24"><div className="wrap grid lg:grid-cols-12 gap-14"><div className="lg:col-span-4"><Reveal><p className="eyebrow mb-4">Packages, booking, payments</p><h2 className="text-3xl leading-tight">Need something else? Contact us.</h2></Reveal></div>
+<div className="lg:col-span-8">{faqs.map(([c,q,a])=><details key={q} className="group border-b border-champagne"><summary className="flex justify-between gap-6 py-6 cursor-pointer list-none"><span><span className="block text-[11px] uppercase tracking-[0.12em] text-rose">{c}</span><span className="block text-lg font-bold mt-1">{q}</span></span><span className="text-rose group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary><p className="pb-6 text-espresso/75 leading-relaxed">{a}</p></details>)}</div></div></section></>}

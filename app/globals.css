@@ -1,0 +1,35 @@
+/* Design system adapted from the AACL Global project: Manrope (display) + Hanken Grotesk (body),
+   pill uppercase buttons, triangle eyebrows, soft fills, hairline borders. Kenari palette: plum on warm cream. */
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--ink:#2B1F28;--plum:#5E2750;--plum-deep:#43183A;--fill:#F5EEE6;--line:#E3D9CC}
+html{scroll-behavior:smooth}
+body{@apply bg-cream font-sans antialiased;color:var(--ink);text-rendering:optimizeLegibility}
+h1,h2,h3,h4{@apply font-display font-bold;letter-spacing:-0.02em;line-height:1.1}
+::selection{background:var(--plum);color:#fff}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+.wrap{@apply mx-auto w-full max-w-7xl px-6 md:px-10}
+.btn{@apply inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 min-h-[44px] text-[13px] font-semibold uppercase tracking-[0.1em] transition-all duration-300 hover:-translate-y-0.5}
+.btn-dark{background:var(--plum);border-color:var(--plum);color:#fff}.btn-dark:hover{background:var(--plum-deep);border-color:var(--plum-deep)}
+.btn-light{background:var(--fill);border-color:var(--fill);color:var(--ink)}.btn-light:hover{background:#fff}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}.btn-line:hover{background:var(--ink);color:#fff}
+.eyebrow{@apply inline-flex items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.12em];color:var(--ink)}
+.eyebrow::before{content:"";border-left:7px solid var(--plum);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.on-dark .eyebrow,.eyebrow.light{color:#fff}
+.link-arrow{@apply inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.1em];color:var(--ink)}
+.link-arrow:hover{color:var(--plum)}.link-arrow svg{transition:transform .3s}.link-arrow:hover svg{transform:translateX(4px)}
+.field{@apply w-full rounded-[10px] border border-transparent px-4 py-3.5 min-h-[44px] text-sm transition-colors;background:var(--fill)}
+.field:focus{outline:none;border-color:var(--ink);background:#fff}
+.panel{@apply rounded-[22px] text-white;background:var(--ink)}
+.footer-dash{@apply inline-flex items-center gap-3}
+.footer-dash::before{content:"";width:14px;height:1px;background:currentColor;opacity:.5;transition:width .3s}
+.footer-dash:hover::before{width:22px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Hero effects (from AACL hero), recoloured to Kenari plum */
+.hero-aurora{position:absolute;inset:-20%;pointer-events:none;background:radial-gradient(38% 42% at 18% 28%,rgba(120,48,100,.55),transparent 70%),radial-gradient(34% 40% at 82% 24%,rgba(150,70,125,.38),transparent 72%),radial-gradient(46% 48% at 60% 82%,rgba(43,31,40,.85),transparent 70%);filter:blur(18px);animation:aurora-drift 22s ease-in-out infinite alternate}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.07) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000 20%,transparent 80%);mask-image:radial-gradient(70% 60% at 50% 45%,#000 20%,transparent 80%);animation:grid-pan 40s linear infinite}
+.hero-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.07) 50%,transparent 65%);background-size:250% 100%;animation:shimmer 9s linear infinite}
+@keyframes aurora-drift{0%{transform:translate3d(-3%,-2%,0) scale(1.05)}50%{transform:translate3d(3%,2%,0) scale(1.14)}100%{transform:translate3d(-2%,3%,0) scale(1.06)}}
+@keyframes grid-pan{from{background-position:0 0}to{background-position:72px 72px}}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.hero-aurora,.hero-grid,.hero-sheen{animation:none!important}}

@@ -1,0 +1,5 @@
+import Link from "next/link";import Image from "next/image";import {ArrowRight} from "lucide-react";import {Pkg,kes} from "@/lib/data";
+export default function PackageCard({p}:{p:Pkg}){return <article className="py-7 grid gap-5 grid-cols-[96px_1fr] md:grid-cols-[180px_1fr_auto] items-center">
+<Link href={`/packages/${p.slug}`} className="relative aspect-square md:aspect-[4/3] block overflow-hidden rounded-[14px]"><Image src={p.image} alt={`${p.short} package`} fill sizes="180px" className="object-cover"/></Link>
+<div><h3 className="text-xl md:text-2xl"><Link href={`/packages/${p.slug}`}>{p.short}</Link></h3><p className="text-sm text-espresso/75 mt-1.5">{p.tagline}</p><p className="eyebrow mt-3 !text-[11px]">{p.sessions}</p></div>
+<div className="col-span-2 md:col-span-1 flex md:flex-col items-center md:items-end justify-between gap-3"><p className="font-display text-2xl font-bold">{kes(p.price)}</p><Link href={`/packages/${p.slug}`} className="link-arrow">Learn more <ArrowRight size={14}/></Link></div></article>}

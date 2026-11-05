@@ -1,0 +1,7 @@
+import type {Metadata} from "next";import Link from "next/link";import Image from "next/image";import {ArrowRight} from "lucide-react";import {products,kes} from "@/lib/data";import PageHero,{Breadcrumbs} from "@/components/PageHero";import Reveal from "@/components/Reveal";
+export const metadata:Metadata={title:"Shop",description:"The Kenari baby sleep e-book and Kenari Lactation Tea."};
+export default function Page(){return <>
+<Breadcrumbs items={[{label:"Home",href:"/"},{label:"Shop"}]}/>
+<PageHero eyebrow="Shop Kenari" title="Support that goes home with you." lead="The Kenari baby sleep e-book and Kenari Lactation Tea." image="/images/feeding.jpg" alt="Kenari nurse feeding a baby"/>
+<section className="py-24"><div className="wrap grid gap-6 sm:grid-cols-2">{products.map((p,i)=><Reveal key={p.slug} delay={i*100}><Link href={`/shop/${p.slug}`} className="group block"><div className="relative aspect-[4/3] overflow-hidden rounded-[18px] bg-ivory"><Image src={p.image} alt={p.name} fill sizes="(min-width:640px) 45vw,100vw" className={`${p.digital?"object-contain":"object-cover"} transition-transform duration-500 group-hover:scale-105`}/></div>
+<h2 className="text-2xl mt-5 group-hover:text-rose">{p.name}</h2><p className="text-sm text-espresso/75 mt-1">{p.short}</p><p className="mt-3 font-extrabold">{kes(p.price)} {p.priceIsPlaceholder&&<span className="text-xs font-normal text-rose">placeholder price</span>}</p><span className="link-arrow mt-3">View product <ArrowRight size={14}/></span></Link></Reveal>)}</div></section></>}
