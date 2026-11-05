@@ -1,3 +1,0 @@
-import Link from "next/link";import Image from "next/image";import {Pkg,kes} from "@/lib/data";
-export default function PackageCard({p}:{p:Pkg}){return <article className="bg-white border border-champagne/60 flex flex-col"><div className="relative aspect-[4/3]"><Image src={p.image} alt={`${p.short} package`} fill sizes="(min-width:1024px) 25vw,(min-width:640px) 50vw,100vw" className="object-cover"/></div>
-<div className="p-5 flex flex-col gap-2 flex-1"><h3 className="text-2xl">{p.short}</h3><p className="text-sm opacity-80">{p.tagline}</p><p className="text-xs text-rose">{p.sessions}</p><p className="font-serif text-2xl mt-auto pt-2">{kes(p.price)}</p><Link href={`/packages/${p.slug}`} className="btn btn-dark mt-2">Learn More</Link></div></article>}
