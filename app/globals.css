@@ -1,0 +1,12 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-cream text-espresso font-sans antialiased}
+h1,h2,h3{@apply font-serif font-medium leading-tight}
+:focus-visible{outline:2px solid #9B7465;outline-offset:3px}
+.btn{@apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm tracking-wide border transition-colors min-h-[44px] rounded-full}
+.btn-dark{@apply bg-espresso text-ivory border-espresso hover:bg-rose hover:border-rose}
+.btn-light{@apply bg-champagne text-espresso border-champagne hover:bg-ivory}
+.btn-line{@apply border-espresso text-espresso hover:bg-espresso hover:text-ivory}
+.eyebrow{@apply text-xs uppercase tracking-[0.2em] text-rose}
+.wrap{@apply mx-auto w-full max-w-6xl px-5 md:px-8}
+.field{@apply w-full border border-champagne bg-white px-4 py-3 min-h-[44px] rounded-md}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
