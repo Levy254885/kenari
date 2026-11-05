@@ -1,0 +1,2 @@
+import type {Metadata} from "next";import {faqs} from "@/lib/data";export const metadata:Metadata={title:"FAQs",description:"Answers about Kenari packages, booking, payments and the e-book."};
+export default function Page(){return <div className="wrap py-14 max-w-3xl"><h1 className="text-5xl mb-8">Frequently Asked Questions</h1>{faqs.map(([c,q,a])=><details key={q} className="border-b border-champagne py-4"><summary className="cursor-pointer font-medium"><span className="text-xs text-rose uppercase mr-2">{c}</span>{q}</summary><p className="mt-2">{a}</p></details>)}</div>}

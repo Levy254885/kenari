@@ -1,0 +1,5 @@
+import type {Metadata} from "next";import Image from "next/image";export const metadata:Metadata={title:"About Kenari",description:"The Kenari philosophy of premium maternity and newborn care."};
+export default function Page(){return <div className="wrap py-14 grid gap-10 md:grid-cols-2 items-center"><div><p className="eyebrow">About Kenari</p><h1 className="text-5xl">Where medical precision meets gentle luxury</h1>
+<p className="mt-5">Kenari Premium Care provides maternity, postpartum and newborn care built around the mother: rest, recovery, confidence and calm. Every package pairs structured, clinically guided practice with personal attention.</p>
+<p className="mt-4">Where every mother is nurtured, not just her baby.</p><p className="mt-4 text-sm text-rose">[Edit: add founder story, team and credentials once approved.]</p></div>
+<div className="relative aspect-square"><Image src="/images/team.jpg" alt="Kenari care team in navy scrubs" fill sizes="(min-width:768px) 50vw,100vw" className="object-cover"/></div></div>}
