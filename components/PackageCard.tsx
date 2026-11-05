@@ -1,3 +1,5 @@
-import Link from "next/link";import Image from "next/image";import {Pkg,kes} from "@/lib/data";
-export default function PackageCard({p}:{p:Pkg}){return <article className="bg-white border border-champagne/60 flex flex-col"><div className="relative aspect-[4/3]"><Image src={p.image} alt={`${p.short} package`} fill sizes="(min-width:1024px) 25vw,(min-width:640px) 50vw,100vw" className="object-cover"/></div>
-<div className="p-5 flex flex-col gap-2 flex-1"><h3 className="text-2xl">{p.short}</h3><p className="text-sm opacity-80">{p.tagline}</p><p className="text-xs text-rose">{p.sessions}</p><p className="font-serif text-2xl mt-auto pt-2">{kes(p.price)}</p><Link href={`/packages/${p.slug}`} className="btn btn-dark mt-2">Learn More</Link></div></article>}
+import type {Metadata} from "next";import {Manrope} from "next/font/google";import "./globals.css";
+import {CartProvider} from "@/components/Cart";import Header from "@/components/Header";import Footer from "@/components/Footer";import {site} from "@/lib/data";
+const sans=Manrope({subsets:["latin"],variable:"--font-sans",display:"swap",weight:["400","500","600","700"]});
+export const metadata:Metadata={metadataBase:new URL(site.url),title:{default:"Kenari Premium Care | Maternity & Newborn Care",template:"%s | Kenari Premium Care"},description:"Premium maternity, postpartum and newborn care in Kenya. "+site.tagline,openGraph:{title:"Kenari Premium Care",description:site.tagline,type:"website",images:["/images/swaddle.jpg"]},icons:{icon:"/favicon.svg"}};
+export default function Root({children}:{children:React.ReactNode}){return <html lang="en" className={sans.variable}><body><CartProvider><Header/><main>{children}</main><Footer/></CartProvider></body></html>}
